@@ -22,12 +22,10 @@ public class Main {
     // Задание 1
     public static void printThreeWords() {
         System.out.println("Task_1:");
-        String[] words = {"Orange", "Banana", "Apple"};
-        for (String word : words) {
-            System.out.println(word);
-        }
+        System.out.println(("Orange\nBanana\nApple"));
         System.out.println();
     }
+
 
     // Задание 2
     public static void checkSumSign() {
@@ -49,7 +47,7 @@ public class Main {
         int value = 50;
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (value > 0 && value <= 100) {
+        } else if (value <= 100) {
             System.out.println("Желтый");
         } else {
             System.out.println("Зеленый");
@@ -119,7 +117,7 @@ public class Main {
     }
     // Задание 8
     public static void repeatString() {
-        System.out.println("Task_8:");
+        System.out.println("Zadanie_8:");
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите строку: ");
@@ -128,15 +126,10 @@ public class Main {
         System.out.print("Введите количество повторений: ");
         int count = scanner.nextInt();
 
-        printStringMultipleTimes(text, count);
+        System.out.println((text + "\n").repeat(count));
         System.out.println();
     }
 
-    public static void printStringMultipleTimes(String text, int count) {
-        for (int i = 0; i < count; i++) {
-            System.out.println(text);
-        }
-    }
     // Задание_9
     public static void checkLeapYear() {
         System.out.println("Task_9:");
@@ -189,7 +182,7 @@ public class Main {
     //Задание 12
     public static void thirdArray() {
         System.out.println("Task_12:");
-        int[] array = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        int[] array = {1, 5, 3, 2, 11, 2, 6, 2, 4, 8, 8, 1};
         for (int i = 0; i < array.length; i++) {
             if (array[i] < 6) {
                 array[i] *= 2;
@@ -243,10 +236,4 @@ public class Main {
         }
         return array;
     }
-
-
-
 }
-
-
-
