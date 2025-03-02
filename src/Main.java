@@ -117,7 +117,7 @@ public class Main {
     }
     // Задание 8
     public static void repeatString() {
-        System.out.println("Zadanie_8:");
+        System.out.println("Task_8:");
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите строку: ");
