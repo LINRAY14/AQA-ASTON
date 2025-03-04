@@ -1,11 +1,11 @@
 // Задание 1
 class Product {
-    private String name; // Название товара
-    private String manufactureDate; // Дата производства
-    private String manufacturer; // Производитель
-    private String country; // Страна происхождения
-    private double price; // Цена товара
-    private boolean BookStatus; // Состояние бронирования
+    private String name;
+    private String manufactureDate;
+    private String manufacturer;
+    private String country;
+    private double price;
+    private boolean BookStatus;
 
     public Product(String name, String manufactureDate, String manufacturer, String country, double price, boolean BookStatus) {
         this.name = name;
