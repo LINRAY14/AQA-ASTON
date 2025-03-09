@@ -1,5 +1,4 @@
 
-    // Интерфейс для геометрических фигур
     interface Shape {
         double calculateArea(); // Метод для расчета площади
         double calculatePerimeter(); // Метод для расчета периметра
@@ -15,7 +14,7 @@
         void displayInfo();
     }
 
-    // Класс "Круг"
+
     class Circle implements Shape {
         private double radius;
         private String fillColor;
@@ -44,7 +43,6 @@
         }
     }
 
-    // Класс "Прямоугольник"
     class Rectangle implements Shape {
         private double width, height;
         private String fillColor;
@@ -73,7 +71,6 @@
         }
     }
 
-    // Класс "Треугольник"
     class Triangle implements Shape {
         private double a, b, c;
         private String fillColor;
