@@ -1,7 +1,6 @@
-
     interface Shape {
-        double calculateArea(); // Метод для расчета площади
-        double calculatePerimeter(); // Метод для расчета периметра
+        double calculateArea();
+        double calculatePerimeter();
 
         default void displayCharacteristics(String fillColor, String borderColor) {
             System.out.println("Площадь: " + calculateArea());
@@ -13,7 +12,6 @@
 
         void displayInfo();
     }
-
 
     class Circle implements Shape {
         private double radius;
