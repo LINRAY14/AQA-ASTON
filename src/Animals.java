@@ -76,6 +76,7 @@ class Cat extends Animal {
         return catCount;
     }
 }
+
 class FoodBowl {
     private int foodAmount;
 
@@ -104,6 +105,7 @@ class FoodBowl {
         return foodAmount;
     }
 }
+
 class Test {
     public static void main(String[] args) {
         Dog dogBobik = new Dog("Бобик");
