@@ -1,5 +1,6 @@
     interface Shape {
-        double calculateArea();
+
+    double calculateArea();
         double calculatePerimeter();
 
         default void displayCharacteristics(String fillColor, String borderColor) {
@@ -12,7 +13,6 @@
 
         void displayInfo();
     }
-
     class Circle implements Shape {
         private double radius;
         private String fillColor;
