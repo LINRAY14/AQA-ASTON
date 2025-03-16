@@ -52,7 +52,7 @@ public class StudentManager {
 
     public static void promoteStudents(Set<Student> students) {
         students.forEach(Student::promoteToNextCourse);
-        students.removeIf(Student::isGraduated); // Удаляем выпускников
+        students.removeIf(Student::isGraduated);
     }
 
     public static void printStudents(Set<Student> students, int course) {
