@@ -26,7 +26,7 @@ class Student {
     }
 
     public void promoteToNextCourse() {
-        if (canBePromoted() && course < 5) { // 5 курсов максимум
+        if (canBePromoted() && course < 5) {
             course++;
         }
     }
