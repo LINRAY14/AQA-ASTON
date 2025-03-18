@@ -8,5 +8,6 @@ public class TestTriangleArea {
         assertEquals(43.301, TriangleArea.triangleArea(10, 10, 10), 0.001);
         assertEquals(24.206, TriangleArea.triangleArea(10, 10, 5), 0.001);
         assertThrows(IllegalArgumentException.class, () -> TriangleArea.triangleArea(-3, 4, 5));
+        assertThrows(IllegalArgumentException.class, () -> TriangleArea.triangleArea(5, 5, 10));
     }
 }
