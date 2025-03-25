@@ -67,40 +67,6 @@ public class PaymentPage {
         return driver.findElement(By.id(inputId)).getAttribute("placeholder");
     }
 
-    public void enterPhoneNumber(String inputId, String phone) {
-        WebElement phoneInput = driver.findElement(By.id(inputId));
-        phoneInput.clear();
-        phoneInput.sendKeys(phone);
-    }
-
-    public void enterAmount(String inputId, String amount) {
-        WebElement amountInput = driver.findElement(By.id(inputId));
-        amountInput.clear();
-        amountInput.sendKeys(amount);
-    }
-
-    public void enterEmail(String inputId, String email) {
-        WebElement emailInput = driver.findElement(By.id(inputId));
-        emailInput.clear();
-        emailInput.sendKeys(email);
-    }
-
-    public void clickContinueButton() {
-        driver.findElement(By.cssSelector("button[type='submit']")).click();
-    }
-
-    public String getBePaidButtonAmount() {
-        return driver.findElement(By.cssSelector("button[type='submit']")).getText(); // например "Оплатить 5.00 BYN"
-    }
-
-    public String getBePaidPhoneNumber() {
-        return driver.findElement(By.xpath("//div[contains(text(),'Оплата:')]/b")).getText(); // "375297777777"
-    }
-
-    public boolean isPaymentSystemIconDisplayed(String altText) {
-        return driver.findElement(By.xpath("//div[contains(@class,'pay__partners')]//img[@alt='" + altText + "']")).isDisplayed();
-    }
-
     public void checkDisplayedAmountAndPhone(String expectedAmount, String expectedPhone) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement amountText = wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -119,7 +85,6 @@ public class PaymentPage {
               throw new AssertionError("Телефон '" + expectedPhone + "' не отображается!");
           }
 
-        // Возвращаемся из iframe
         driver.switchTo().defaultContent();
     }
 
