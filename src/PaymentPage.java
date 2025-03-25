@@ -40,7 +40,6 @@ public class PaymentPage {
             try {
                 cookieCancel.click();
             } catch (ElementClickInterceptedException e) {
-                // Если перекрыто — кликаем через JS
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cookieCancel);
             }
 
