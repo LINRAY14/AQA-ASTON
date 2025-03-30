@@ -9,7 +9,6 @@ public class TriangleArea {
             throw new IllegalArgumentException("Треугольник с такими сторонами не существует!");
         }
 
-        // Формула Герона
         double s = (a + b + c) / 2;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
