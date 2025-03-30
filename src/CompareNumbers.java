@@ -10,7 +10,7 @@ public class CompareNumbers {
     }
 
     public static void main(String[] args) {
-        System.out.println(compare(5, 10));
+        System.out.println(compare(5,10));
 
     }
 }
