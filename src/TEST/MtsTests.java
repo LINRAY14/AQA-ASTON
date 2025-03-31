@@ -43,6 +43,7 @@ public class MtsTests {
         Assert.assertTrue(actualText.contains("Онлайн пополнение") &&
                         actualText.contains("без комиссии"),
                 "Заголовок блока: '" + expectedText +  "' не отображается");
+        System.out.println("Заголовок блока  '" + actualText + "' отобразился");
     }
 
     @Test
@@ -57,6 +58,7 @@ public class MtsTests {
                     By.xpath("//div[@class=\"pay__partners\"]//img[@alt='" + alt + "']")));
 
                     Assert.assertTrue(logo.isDisplayed(), "Логотип не найден: " + alt);
+                    System.out.println("Логотип '" +alt + "'отобразился");
         }
     }
     @Test
@@ -75,6 +77,7 @@ public class MtsTests {
         String actualText = title.getText().trim();
         Assert.assertTrue(actualText.contains(expectedText),
                 "Заголовок блока: '" + expectedText +  "' не отображается");
+
 
     }
     @Test
@@ -100,7 +103,7 @@ public class MtsTests {
 
         Assert.assertTrue(paymentBlock.isDisplayed(), "Форма оплаты не появилась.");
 
-        System.out.println("Форма оплаты появилась - тест пройден");
+        System.out.println("Форма оплаты отобразилась");
     }
 
 
