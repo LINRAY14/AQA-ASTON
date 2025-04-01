@@ -1,6 +1,9 @@
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -11,14 +14,21 @@ public class PaymentFormPlaceholdersTest {
     private PaymentPage paymentPage;
 
     @BeforeClass
-    public void setUp() {
-        driver = WebDriverFactory.create();
-        paymentPage = new PaymentPage(driver);
+    public void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeMethod
+    public void setup() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://mts.by");
+        paymentPage = new PaymentPage(driver);
     }
 
     @Test
-    public void testPlaceholdersForAllPaymentOptions() {
+    public void
+    testPlaceholdersForAllPaymentOptions() {
         checkPlaceholders("Услуги связи", "connection-phone", "connection-sum",
                 "Номер телефона", "Сумма");
         checkPlaceholders("Домашний интернет", "internet-phone", "internet-sum",

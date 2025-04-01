@@ -77,12 +77,12 @@ public class PaymentPage {
         }
 
 
-          WebElement phoneElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-          By.xpath("//span[contains(text(), '" + expectedPhone + "')]")
-           ));
-          if (!phoneElement.isDisplayed()) {
-              throw new AssertionError("Телефон '" + expectedPhone + "' не отображается!");
-          }
+        WebElement phoneElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//span[contains(text(), '" + expectedPhone + "')]")
+        ));
+        if (!phoneElement.isDisplayed()) {
+            throw new AssertionError("Телефон '" + expectedPhone + "' не отображается!");
+        }
 
         driver.switchTo().defaultContent();
     }
@@ -107,6 +107,67 @@ public class PaymentPage {
                 throw new AssertionError("Плейсхолдер '" + label + "' не отображается!");
             }
         }
+    }
+    public void verifyBlockTitle() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='pay__wrapper']//h2")));
+        String expectedText = "Онлайн пополнение без комиссии";
+        String actualText = title.getText().replace("\n", " ").trim();
+        Assert.assertTrue(actualText.contains("Онлайн пополнение") &&
+                        actualText.contains("без комиссии"),
+                "Заголовок блока: '" + expectedText + "' не отображается");
+        System.out.println("Заголовок блока '" + actualText + "' отобразился");
+    }
+
+    public void verifyPaymentLogos() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        String[] expectedAlts = {
+                "Visa", "Verified By Visa", "MasterCard",
+                "MasterCard Secure Code", "Белкарт"
+        };
+
+        for (String alt : expectedAlts) {
+            WebElement logo = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//div[@class=\"pay__partners\"]//img[@alt='" + alt + "']")));
+            Assert.assertTrue(logo.isDisplayed(), "Логотип не найден: " + alt);
+            System.out.println("Логотип '" + alt + "' отобразился");
+        }
+    }
+
+    public void verifyServiceLinkNavigation() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        WebElement link = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//a[contains(@href, '/help/poryadok-oplaty-i-bezopasnost-internet-platezhey')]")
+        ));
+        link.click();
+
+
+        WebElement heading = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//h3[contains(text(),'Оплата банковской картой')]")
+        ));
+
+        String expected = "Оплата банковской картой";
+        String actual = heading.getText().trim();
+
+        Assert.assertTrue(actual.contains(expected),
+                "Ожидали заголовок: '" + expected + "', но получили: '" + actual + "'");
+
+        System.out.println("Успешная навигация на страницу: '" + actual + "'");
+    }
+
+
+    public void verifyPaymentFormDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(
+                By.cssSelector("iframe.bepaid-iframe")));
+
+        WebElement paymentBlock = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("div.app-wrapper")));
+
+        Assert.assertTrue(paymentBlock.isDisplayed(), "Форма оплаты не появилась.");
+        System.out.println("Форма оплаты отобразилась");
     }
 
 }
